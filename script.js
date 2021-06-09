@@ -34,10 +34,18 @@ L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
             
             L.marker([lat, lng])
                 .addTo(map)
-                .bindPopup(L.popup())
+                .bindPopup(L.popup({
+                    maxWidth: 250,
+                    minWidth: 100,
+                    autoClose: false,
+                    closeOnClick: false,
+                    className: 'running-popup',
+                    
+                })
+                )
+                .setPopupContent('Workout')
                 .openPopup();
-        });
-        
+        });   
     },
         function () {
             alert('Could not get your position');
